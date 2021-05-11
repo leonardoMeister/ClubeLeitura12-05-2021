@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeLeitura12_05_2021
+namespace ClubeLeitura12_05_2021.Telas
 {
-    class Program
+    interface Interface1
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
