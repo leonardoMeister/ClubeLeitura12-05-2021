@@ -93,7 +93,12 @@ namespace ClubeLeitura12_05_2021.Telas
 
             for (int i = 0; i < revista.Length; i++)
             {
-                Console.WriteLine(configuracaColunasTabela, revista[i].Id , revista[i].TipoColecao, revista[i].Status);
+                string aux;
+                if (revista[i].StatusEmprestimo)
+                {
+                    aux = "Disponivel Alugar";
+                } else aux = "Emprestada";
+                Console.WriteLine(configuracaColunasTabela, revista[i].Id , revista[i].TipoColecao, aux);
             }
         }
 

@@ -12,7 +12,7 @@ namespace ClubeLeitura12_05_2021
 
             while (true)
             {
-                ICadastravel telaSelecionada = telaPrincipal.ObterOpcao();
+                TelaBase telaSelecionada = telaPrincipal.ObterOpcao();
 
                 if (telaSelecionada == null)
                     break;
@@ -24,26 +24,46 @@ namespace ClubeLeitura12_05_2021
                 if (opcao.Equals("s", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (opcao == "1")
-                    telaSelecionada.InserirNovoRegistro();
-
-                else if (opcao == "2")
+                if (telaSelecionada is TelaEmprestimo)
                 {
-                    telaSelecionada.VisualizarRegistros();
-                    Console.ReadLine();
-                }
-
-                else if (opcao == "3")
-                    telaSelecionada.EditarRegistro();
-
-                else if (opcao == "4")
-                    telaSelecionada.ExcluirRegistro();
-
-                else if (opcao == "5")
-                {
-                    if (telaSelecionada is TelaAmigo)
+                    if (opcao == "1")
                     {
-                        ((TelaAmigo)telaSelecionada).MostrarHistorico();
+                        ((TelaEmprestimo)telaSelecionada).CriarEmprestimo();
+                    }
+                    else if (opcao == "2")
+                    {
+                        ((TelaEmprestimo)telaSelecionada).VisualizarEmprestimos();
+                        Console.ReadLine();
+                    }
+                    else if (opcao == "3")
+                    {
+                        ((TelaEmprestimo)telaSelecionada).DevolverEmprestimo();
+
+                    }
+                }
+                else
+                {
+                    if (opcao == "1")
+                        ((ICadastravel)telaSelecionada).InserirNovoRegistro();
+
+                    else if (opcao == "2")
+                    {
+                        ((ICadastravel)telaSelecionada).VisualizarRegistros();
+                        Console.ReadLine();
+                    }
+
+                    else if (opcao == "3")
+                        ((ICadastravel)telaSelecionada).EditarRegistro();
+
+                    else if (opcao == "4")
+                        ((ICadastravel)telaSelecionada).ExcluirRegistro();
+
+                    else if (opcao == "5")
+                    {
+                        if (telaSelecionada is TelaAmigo)
+                        {
+                            ((TelaAmigo)telaSelecionada).MostrarHistorico();
+                        }
                     }
                 }
 

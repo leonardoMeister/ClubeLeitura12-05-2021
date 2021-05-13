@@ -34,7 +34,16 @@ namespace ClubeLeitura12_05_2021.Controladores
 
             return resultadoValidacao;
         }
-
+        protected override bool CompararId(object auxId, object AuxComparador)
+        {
+            Amigo aux1 = (Amigo)auxId;
+            Amigo aux2 = (Amigo)AuxComparador;
+            if (aux1.Id == aux2.Id)
+            {
+                return true;
+            }
+            else return false;
+        }
         public Amigo SelecionarAmigoPorId(int id)
         {
             return (Amigo)SelecionarRegistroPorId(new Amigo(id));

@@ -113,7 +113,7 @@ namespace ClubeLeitura12_05_2021.Telas
         {
             ConfigurarTela("Visualizando Amigos...");
 
-            string configuracaColunasTabela = "{0,-10} | {1,-55} | {2,-35}";
+            string configuracaColunasTabela = "{0,-10} | {1,-25} | {2,-40} | {3,-35}";
 
             MontarCabecalhoTabela(configuracaColunasTabela);
 
@@ -127,7 +127,14 @@ namespace ClubeLeitura12_05_2021.Telas
 
             for (int i = 0; i < amigo.Length; i++)
             {
-                Console.WriteLine(configuracaColunasTabela, amigo[i].Id, amigo[i].Nome, amigo[i].Responsavel);
+                string aux;
+                if (amigo[i].StatusEmprestimo)
+                {
+                    aux = "Sem Emprestimo";
+                }
+                else aux = "Com Emprestimo";
+
+                Console.WriteLine(configuracaColunasTabela, amigo[i].Id, aux, amigo[i].Nome, amigo[i].Responsavel);
             }
         }
 
@@ -136,7 +143,7 @@ namespace ClubeLeitura12_05_2021.Telas
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine(configuracaoColunasTabela, "Id", "Nome", "Responsável");
+            Console.WriteLine(configuracaoColunasTabela, "Id", "Status", "Nome", "Responsável");
 
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
 

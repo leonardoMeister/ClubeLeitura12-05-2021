@@ -13,6 +13,7 @@ namespace ClubeLeitura12_05_2021.Dominio
         private DateTime dataRevista;
         private Caixa caixa;
         private string status;
+        private bool statusEmprestimo;
         private int id;
         private static int idClass = 1;
 
@@ -20,6 +21,7 @@ namespace ClubeLeitura12_05_2021.Dominio
         {
             Id = idClass;
             idClass++;
+            statusEmprestimo = true;
         }
         public Revista(int id)
         {
@@ -32,6 +34,8 @@ namespace ClubeLeitura12_05_2021.Dominio
         public string Status { get => status; set => status = value; }
         internal Caixa Caixa { get => caixa; set => caixa = value; }
         public int Id { get => id; set => id = value; }
+        public bool StatusEmprestimo { get => statusEmprestimo; set => statusEmprestimo = value; }
+
         public override bool Equals(object obj)
         {
             Revista revista = (Revista)obj;

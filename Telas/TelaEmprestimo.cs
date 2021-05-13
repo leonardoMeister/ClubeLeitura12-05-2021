@@ -4,7 +4,7 @@ using ClubeLeitura12_05_2021.Dominio;
 
 namespace ClubeLeitura12_05_2021.Telas
 {
-    class TelaEmprestimo : TelaBase, ICadastravel
+    class TelaEmprestimo : TelaBase
     {
         private ControladorRevista controladorRevista;
         private ControladorEmprestimo controladorEmprestimo;
@@ -25,8 +25,7 @@ namespace ClubeLeitura12_05_2021.Telas
             Console.WriteLine($"Gestão de Emprestimos\n");
             Console.WriteLine("Digite 1 para Realizar um Emprestimo");
             Console.WriteLine("Digite 2 para visualizar Emprestimos Ativos");
-            Console.WriteLine("Digite 3 para editar um Emprestimo");
-            Console.WriteLine("Digite 4 para Devolver um Emprestimo");
+            Console.WriteLine("Digite 3 para Devolver um Emprestimo");
 
             Console.WriteLine("Digite S para sair");
 
@@ -34,38 +33,18 @@ namespace ClubeLeitura12_05_2021.Telas
 
             return opcao;
         }
-        public void EditarRegistro()
-        {
-            ConfigurarTela("Editando um Emprestimo...");
 
-            VisualizarRegistros();
-
-            Console.WriteLine();
-
-            Console.Write("Digite o número Id do Emprestimo que deseja editar: ");
-            int id = Convert.ToInt32(Console.ReadLine());
-
-            bool conseguiuGravar = GravarEmprestimo(id);
-
-            if (conseguiuGravar)
-                ApresentarMensagem("Emprestimo editado com sucesso", TipoMensagem.Sucesso);
-            else
-            {
-                ApresentarMensagem("Falha ao tentar editar o Emprestimo", TipoMensagem.Erro);
-                EditarRegistro();
-            }
-        }
-
-        public void ExcluirRegistro()
+        public void DevolverEmprestimo()
         {
             ConfigurarTela("Devolvendo um Emprestimo...");
 
-            VisualizarRegistros();
+            VisualizarEmprestimos();
 
             Console.WriteLine(); 
              
             Console.Write("Digite o número do Emprestimo que deseja excluir: ");
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
+
 
             bool conseguiuExcluir = controladorEmprestimo.ExcluirEmprestimo(idSelecionado);
 
@@ -74,11 +53,11 @@ namespace ClubeLeitura12_05_2021.Telas
             else
             {
                 ApresentarMensagem("Falha ao tentar excluir o Emprestimo", TipoMensagem.Erro);
-                ExcluirRegistro();
+                DevolverEmprestimo();
             }
         }
 
-        public void InserirNovoRegistro()
+        public void CriarEmprestimo()
         {
             ConfigurarTela("Inserindo um novo Emprestimo...");
 
@@ -89,11 +68,11 @@ namespace ClubeLeitura12_05_2021.Telas
             else
             {
                 ApresentarMensagem("Falha ao tentar inserir o Emprestimo", TipoMensagem.Erro);
-                InserirNovoRegistro();
+                CriarEmprestimo();
             }
         }
 
-        public void VisualizarRegistros()
+        public void VisualizarEmprestimos()
         {
             ConfigurarTela("Visualizando Emprestimos...");
 

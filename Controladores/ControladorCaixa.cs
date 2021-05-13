@@ -32,6 +32,17 @@ namespace ClubeLeitura12_05_2021.Controladores
                 registros[posicao] = caixa;
             return resultadoValidacao;
         }
+        protected override bool CompararId(object auxId, object AuxComparador)
+        {
+            Caixa aux1 = (Caixa)auxId;
+            Caixa aux2 = (Caixa)AuxComparador;
+            if (aux1.Id == aux2.Id)
+            {
+                return true;
+            }
+            else return false;
+             
+        }
 
         public Caixa SelecionarCaixaPorId(int id)
         {

@@ -30,9 +30,9 @@ namespace ClubeLeitura12_05_2021.Telas
         }
 
 
-        public ICadastravel ObterOpcao()
+        public TelaBase ObterOpcao()
         {
-            ICadastravel telaSelecionada = null;
+            TelaBase telaSelecionada = null;
             string opcao;
             do
             {

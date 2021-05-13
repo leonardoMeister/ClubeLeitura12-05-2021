@@ -36,7 +36,16 @@ namespace ClubeLeitura12_05_2021.Controladores
             
             return resultadoValidacao;
         }
-
+        protected override bool CompararId(object auxId, object AuxComparador)
+        {
+            Revista aux1 = (Revista)auxId;
+            Revista aux2 = (Revista)AuxComparador;
+            if (aux1.Id == aux2.Id)
+            {
+                return true;
+            }
+            else return false;
+        }
         public Revista SelecionarRevistaPorId(int id)
         {
             return (Revista)SelecionarRegistroPorId(new Revista(id));

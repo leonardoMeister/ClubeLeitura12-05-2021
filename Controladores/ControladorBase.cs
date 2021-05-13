@@ -17,7 +17,6 @@ namespace ClubeLeitura12_05_2021.Controladores
         {
             registros = new object[CAPACIDADE_REGISTROS];
         }
-
         protected bool ExcluirRegistro(object obj)
         {
             bool conseguiuExcluir = false;
@@ -98,14 +97,19 @@ namespace ClubeLeitura12_05_2021.Controladores
 
             return posicao;
         }
+        protected virtual bool CompararId(Object auxId, Object AuxComparador)
+        {
 
-        protected int ObterPosicaoOcupada(object obj)
+            return false;
+        }
+
+        protected virtual int ObterPosicaoOcupada(object obj)
         {
             int posicao = 0;
 
             for (int i = 0; i < registros.Length; i++)
             {
-                if (registros[i] != null && registros[i].Equals(obj)) //editando...
+                if (registros[i] != null && CompararId(obj,registros[i])) 
                 {
                     posicao = i;
                     break;
