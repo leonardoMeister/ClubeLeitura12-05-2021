@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace ClubeLeitura12_05_2021.Telas
 {
-    interface Interface1
+    interface ICadastravel
     {
+        void InserirNovoRegistro();
+
+        void EditarRegistro();
+
+        void ExcluirRegistro();
+
+        void VisualizarRegistros();
     }
 }

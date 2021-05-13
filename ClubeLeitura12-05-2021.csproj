@@ -58,7 +58,10 @@
     <Compile Include="Telas\TelaAmigo.cs" />
     <Compile Include="Telas\TelaBase.cs" />
     <Compile Include="Telas\TelaCaixa.cs" />
+    <Compile Include="Telas\TelaEmprestimo.cs" />
+    <Compile Include="Telas\TelaPrincipal.cs" />
     <Compile Include="Telas\TelaRevista.cs" />
+    <Compile Include="Telas\TipoMensagem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

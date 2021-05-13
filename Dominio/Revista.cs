@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClubeLeitura12_05_2021.Dominio
 {
-    class Revista
+    public class Revista
     {
         private string tipoColecao;
         private int numeroColecao;
@@ -14,16 +14,16 @@ namespace ClubeLeitura12_05_2021.Dominio
         private Caixa caixa;
         private string status;
         private int id;
-        private static int idClass = 0;
+        private static int idClass = 1;
 
         public Revista()
         {
-            id = idClass;
+            Id = idClass;
             idClass++;
         }
         public Revista(int id)
         {
-            this.id = id;
+            this.Id = id;
         }
 
         public string TipoColecao { get => tipoColecao; set => tipoColecao = value; }
@@ -31,13 +31,27 @@ namespace ClubeLeitura12_05_2021.Dominio
         public DateTime DataRevista { get => dataRevista; set => dataRevista = value; }
         public string Status { get => status; set => status = value; }
         internal Caixa Caixa { get => caixa; set => caixa = value; }
+        public int Id { get => id; set => id = value; }
+        public override bool Equals(object obj)
+        {
+            Revista revista = (Revista)obj;
+
+            if (id == revista.id)
+                return true;
+            else
+                return false;
+        }
 
         public string RevistaValida()
         {
             string aux = "";
 
-            //IMPLEMENTAR VALIDACAO
+           // if()
 
+            if (aux == "")
+            {
+                return "REVISTA_VALIDA";
+            }
             return aux;
         }
     }
