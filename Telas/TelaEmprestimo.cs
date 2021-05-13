@@ -62,7 +62,7 @@ namespace ClubeLeitura12_05_2021.Telas
 
             VisualizarRegistros();
 
-            Console.WriteLine();
+            Console.WriteLine(); 
              
             Console.Write("Digite o número do Emprestimo que deseja excluir: ");
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
